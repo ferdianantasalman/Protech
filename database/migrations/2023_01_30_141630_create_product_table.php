@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('price');
             $table->string('detail');
             $table->string('image');
+            $table->integer('stok');
             $table->timestamps();
         });
     }

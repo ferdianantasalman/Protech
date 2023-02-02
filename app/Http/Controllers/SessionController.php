@@ -33,10 +33,18 @@ class SessionController extends Controller
             'password' => $request->password,
         ];
 
-        $data = User::where('email', $request->email)->first();
+        $data = User::all()->where('email', $request->email)->first();
 
         if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            Session::put('id', $data->id);
             Session::put('name', $data->name);
+            // session([
+            //     'id', $data->id,
+            //     'name', $data->name,
+            //     'email', $data->email,
+            // ]);
+            // Session::put('email', $request->email);
             return redirect('/dev')->with('success', 'Login berhasil');
         } else {
             return redirect('/login')->withErrors('Username atau Password salah');

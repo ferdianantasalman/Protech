@@ -33,7 +33,8 @@
 
     <link rel="stylesheet" href="{{ asset('admin/vendor/libs/apex-charts/apex-charts.css')}}" />
 
-    <!-- Page CSS -->
+    <!-- Data Table -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
 
     <!-- Helpers -->
     <script src="{{ asset('admin/vendor/js/helpers.js')}}"></script>
@@ -81,6 +82,11 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <!-- Data Table -->
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
 </body>
 
 </html>

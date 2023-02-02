@@ -16,7 +16,7 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $data = Product::orderBy('id', 'asc')->paginate(5);
+        $data = Product::orderBy('id', 'asc')->paginate(3);
         return view('admin/produk/index')->with('data', $data);
     }
 
@@ -46,12 +46,15 @@ class ProdukController extends Controller
             'name' => 'required',
             'price' => 'required|numeric',
             'detail' => 'required',
+            'stok' => 'required|numeric',
             'image' => 'required|mimes:jpeg,jpg,png.gif,svg',
         ], [
             'name.required' => 'Nama wajib diisi',
             'price.required' => 'Harga wajib diisi',
-            'price.numeric' => 'Nomor Induk wajib diisi dengan angka',
+            'price.numeric' => 'Harga wajib diisi dengan angka',
             'detail.required' => 'Keterangan wajib diisi',
+            'stok.required' => 'Stok wajib diisi',
+            'stok.numeric' => 'Stok wajib diisi dengan angka',
             'image.required' => 'Silahkan masukkan foto',
             'image.mimes' => 'Ekstensi foto hanya boleh jpg, jpeg, png, gif',
         ]);
@@ -65,6 +68,7 @@ class ProdukController extends Controller
             'name' => $request->input('name'),
             'price' => $request->input('price'),
             'detail' => $request->input('detail'),
+            'stok' => $request->input('stok'),
             'image' => $file_name,
         ];
 
@@ -112,17 +116,21 @@ class ProdukController extends Controller
             'name' => 'required',
             'price' => 'required|numeric',
             'detail' => 'required',
+            'stok' => 'required|numeric',
         ], [
             'name.required' => 'Nama wajib diisi',
             'price.required' => 'Harga wajib diisi',
             'price.numeric' => 'Nomor Induk wajib diisi dengan angka',
             'detail.required' => 'Keterangan wajib diisi',
+            'stok.required' => 'Stok wajib diisi',
+            'stok.numeric' => 'Stok wajib diisi dengan angka',
         ]);
 
         $data = [
             'name' => $request->input('name'),
             'price' => $request->input('price'),
             'detail' => $request->input('detail'),
+            'stok' => $request->input('stok'),
         ];
 
         if ($request->hasFile('image')) {

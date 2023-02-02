@@ -10,35 +10,26 @@
                 <div class="col-xl">
                   <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                      <h5 class="mb-0">Edit Produk</h5>
+                      <h5 class="mb-0">Tambah Service</h5>
                     </div>
                     <div class="card-body">
                      @include('component/admin/message')
-                      <form method="POST" action="{{'/dev/produk/'.$data->id}}" enctype="multipart/form-data">
+                      <form method="POST" action="/dev/servis" enctype="multipart/form-data">
                         @csrf
-                        @method('PUT')
                         <div class="mb-3">
                           <label class="form-label" for="name">Nama</label>
-                          <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan nama produk" value="{{ $data->name }}"/>
+                          <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan nama produk" value="{{ Session::get('nameservis') }}"/>
                         </div>
                         <div class="mb-3">
                           <label class="form-label" for="price">Harga</label>
-                          <input type="number" class="form-control" id="price" name="price" placeholder="Masukkan harga produk" value="{{ $data->price }}"/>
-                        </div>
-                        <div class="mb-3">
-                          <label class="form-label" for="price">Stok</label>
-                          <input type="number" class="form-control" id="stok" name="stok" placeholder="Masukkan stok produk" value="{{ $data->stok }}"/>
+                          <input type="number" class="form-control" id="price" name="price" placeholder="Masukkan harga produk" value="{{ Session::get('price') }}"/>
                         </div>
                         <div class="mb-3">
                           <label class="form-label" for="detail">Keterangan</label>
-                          <textarea id="detail" name="detail" class="form-control" placeholder="Masukkan keterangan produk">{{ $data->detail }}</textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="image" class="form-label">Foto</label>
-                            <input type="file" class="form-control" id="image" name="image">
+                          <textarea id="detail" name="detail" class="form-control" placeholder="Masukkan keterangan produk">{{ Session::get('detail') }}</textarea>
                         </div>
                             <button type="submit" class="btn btn-primary">Simpan</button>
-                            <a class="btn btn-danger" href="/dev/produk">Kembali</a>
+                            <a class="btn btn-danger" href="/dev/servis">Kembali</a>
                       </form>
                     </div>
                   </div>

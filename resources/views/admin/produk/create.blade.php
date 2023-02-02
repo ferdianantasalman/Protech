@@ -25,6 +25,10 @@
                           <input type="number" class="form-control" id="price" name="price" placeholder="Masukkan harga produk" value="{{ Session::get('price') }}"/>
                         </div>
                         <div class="mb-3">
+                          <label class="form-label" for="stok">Stok</label>
+                          <input type="number" class="form-control" id="stok" name="stok" placeholder="Masukkan harga produk" value="{{ Session::get('price') }}"/>
+                        </div>
+                        <div class="mb-3">
                           <label class="form-label" for="detail">Keterangan</label>
                           <textarea id="detail" name="detail" class="form-control" placeholder="Masukkan keterangan produk">{{ Session::get('detail') }}</textarea>
                         </div>
@@ -33,7 +37,7 @@
                             <input type="file" class="form-control" id="image" name="image">
                         </div>
                             <button type="submit" class="btn btn-primary">Simpan</button>
-                            <a class="btn btn-danger" href="/produk">Kembali</a>
+                            <a class="btn btn-danger" href="/dev/produk">Kembali</a>
                       </form>
                     </div>
                   </div>

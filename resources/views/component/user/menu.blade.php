@@ -83,31 +83,25 @@
             <li class="menu-item">
               <a href="/dev/produk" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Analytics">Produk</div>
+                <div data-i18n="Analytics">Riwayat Produk</div>
               </a>
             </li>
             <li class="menu-item">
-              <a href="/dev/servis" class="menu-link">
+              <a href="/dev/produk" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Analytics">Service</div>
+                <div data-i18n="Analytics">Daftar Order</div>
               </a>
             </li>
             <li class="menu-item">
-              <a href="/dev/order" class="menu-link">
+              <a href="service-order" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Order Produk</div>
+                <div data-i18n="Analytics">Riwayat Servis</div>
               </a>
             </li>
             <li class="menu-item">
-              <a href="/dev/order" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Order Service</div>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a href="/dev/servis" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Servis</div>
+              <a href="service-order/create" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Analytics">Daftar Servis</div>
               </a>
             </li>
             <li class="menu-item">

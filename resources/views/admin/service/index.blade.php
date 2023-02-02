@@ -7,7 +7,7 @@
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
                             @include('component/admin/message')                
-                        <a href="produk/create" class="btn btn-primary mt-2 mb-4">Tambah Data</a>
+                        <a href="servis/create" class="btn btn-primary mt-2 mb-4">Tambah Data</a>
                         <!-- Examples -->
                         {{-- <div class="row">
                             <div class="col-md-6 col-xl-4">
@@ -72,10 +72,8 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Foto</th>
-                                            <th>Nama Produk</th>
-                                            <th>Harga Produk</th>
-                                            <th>Stok Produk</th>
+                                            <th>Nama Service</th>
+                                            <th>Harga Service</th>
                                             <th>Keterangan</th>
                                             <th>Action</th>
                                         </tr>
@@ -87,16 +85,14 @@
                                         @foreach ($data as $item)
                                             <tr>
                                                 <td>{{ $i++ }}</td>
-                                                <td><img width="100px" height="100px" align="center" src="{{ url('/data_file/',$item->image)}}"></td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>Rp. {{ $item->price }}</td>
-                                                <td>{{ $item->stok }}</td>
                                                 <td>{{ $item->detail }}</td>
                                                 <td>
-                                                    <form action="{{ url('dev/produk/'.$item->id) }}" method="POST">
+                                                    <form action="{{ url('dev/servis/'.$item->id) }}" method="POST">
                                                     @csrf
                                                         @method('DELETE')
-                                                        <a href="{{ url('dev/produk/'.$item->id.'/edit') }}" class="btn btn-outline-primary text-primary mt-2">Edit </a>
+                                                        <a href="{{ url('dev/servis/'.$item->id.'/edit') }}" class="btn btn-outline-primary text-primary mt-2">Edit </a>
                                                 <button type="submit" class="btn btn-outline-primary text-primary mt-2" onclick="javascript: return confirm('Apakah anda yakin ingin menghapus data ini ?')">Delete</button>
                                                     </form>
                                                 </td>

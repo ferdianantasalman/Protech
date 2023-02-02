@@ -1,4 +1,4 @@
-@extends('layout/admin')
+@extends('layout/user')
 
 @section('content')
 
@@ -7,8 +7,6 @@
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
                             @include('component/admin/message')                
-                        <a href="produk/create" class="btn btn-primary mt-2 mb-4">Tambah Data</a>
-                        <!-- Examples -->
                         {{-- <div class="row">
                             <div class="col-md-6 col-xl-4">
                                 <div class="card border border-primary text-center mb-3">
@@ -65,18 +63,18 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> --}}<div class="row mb-5">
+                        </div> --}}
+                        <div class="row mb-5 ms-1 me-1">
                                 <div class="card">
                                 <div class="table-responsive text-nowrap mb-3 mt-3">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Foto</th>
-                                            <th>Nama Produk</th>
-                                            <th>Harga Produk</th>
-                                            <th>Stok Produk</th>
-                                            <th>Keterangan</th>
+                                            <th>Service</th>
+                                            <th>Jadwal</th>
+                                            <th>Jam</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -87,17 +85,16 @@
                                         @foreach ($data as $item)
                                             <tr>
                                                 <td>{{ $i++ }}</td>
-                                                <td><img width="100px" height="100px" align="center" src="{{ url('/data_file/',$item->image)}}"></td>
-                                                <td>{{ $item->name }}</td>
-                                                <td>Rp. {{ $item->price }}</td>
-                                                <td>{{ $item->stok }}</td>
-                                                <td>{{ $item->detail }}</td>
+                                                <td>{{ $item->service }}</td>
+                                                <td>{{ $item->jadwal }}</td>
+                                                <td>{{ $item->jam }}</td>
+                                                <td>{{ $item->status }}</td>
                                                 <td>
-                                                    <form action="{{ url('dev/produk/'.$item->id) }}" method="POST">
+                                                    <form action="{{ url('service-order/'.$item->id) }}" method="POST">
                                                     @csrf
                                                         @method('DELETE')
-                                                        <a href="{{ url('dev/produk/'.$item->id.'/edit') }}" class="btn btn-outline-primary text-primary mt-2">Edit </a>
-                                                <button type="submit" class="btn btn-outline-primary text-primary mt-2" onclick="javascript: return confirm('Apakah anda yakin ingin menghapus data ini ?')">Delete</button>
+                                                        {{-- <a href="{{ url('dev/produk/'.$item->id.'/edit') }}" class="btn btn-outline-primary text-primary mt-2">Edit </a> --}}
+                                                        <button type="submit" class="btn btn-outline-primary text-primary mt-2" onclick="tambah()">Cancel</button>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -136,5 +133,28 @@
           </div>
           <!-- Content wrapper -->
                 
-
+        <script>
+        //   $(document).ready(function(){
+        //     Swal.fire('Any fool can use a computer')
+        //   })
+        tambah => () = (){
+            Swal.fire({
+            title: 'Cancel order servis?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+            Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+            )
+    }
+})
+        }
+        </script>
 @endsection

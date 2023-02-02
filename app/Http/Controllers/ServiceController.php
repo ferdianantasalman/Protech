@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
+use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 
-class OrderController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('admin/order/index');
+        $data = Service::orderBy('id', 'asc')->paginate(5);
+        return view('admin/service/index')->with('data', $data);
     }
 
     /**
@@ -25,6 +27,7 @@ class OrderController extends Controller
      */
     public function create()
     {
+        return view('admin/service/create');
     }
 
     /**
@@ -35,7 +38,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        Session::flash('nameproduk', $request->name);
+        Session::flash('nameservis', $request->name);
         Session::flash('price', $request->price);
         Session::flash('detail', $request->detail);
 
@@ -43,31 +46,22 @@ class OrderController extends Controller
             'name' => 'required',
             'price' => 'required|numeric',
             'detail' => 'required',
-            'image' => 'required|mimes:jpeg,jpg,png.gif,svg',
         ], [
             'name.required' => 'Nama wajib diisi',
             'price.required' => 'Harga wajib diisi',
-            'price.numeric' => 'Nomor Induk wajib diisi dengan angka',
+            'price.numeric' => 'Harga wajib diisi dengan angka',
             'detail.required' => 'Keterangan wajib diisi',
-            'image.required' => 'Silahkan masukkan foto',
-            'image.mimes' => 'Ekstensi foto hanya boleh jpg, jpeg, png, gif',
         ]);
-
-        $foto_file = $request->file('image');
-        $file_name = date('ymdhis') . "." . $foto_file->extension();
-
-        $foto_file->move(public_path('data_file'), $file_name);
 
         $data = [
             'name' => $request->input('name'),
             'price' => $request->input('price'),
             'detail' => $request->input('detail'),
-            'image' => $file_name,
         ];
 
-        Order::create($data);
+        Service::create($data);
 
-        return redirect('dev/produk')->with('success', 'Data berhasil ditambahkan');
+        return redirect('dev/servis')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -89,7 +83,9 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Service::where('id', $id)->first();
+
+        return view('admin/service/edit')->with('data', $data);
     }
 
     /**
@@ -101,7 +97,26 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'detail' => 'required',
+        ], [
+            'name.required' => 'Nama wajib diisi',
+            'price.required' => 'Harga wajib diisi',
+            'price.numeric' => 'Nomor Induk wajib diisi dengan angka',
+            'detail.required' => 'Keterangan wajib diisi',
+        ]);
+
+        $data = [
+            'name' => $request->input('name'),
+            'price' => $request->input('price'),
+            'detail' => $request->input('detail'),
+        ];
+
+        Service::where('id', $id)->update($data);
+
+        return redirect('dev/servis')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -112,6 +127,7 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Service::where('id', $id)->delete();
+        return redirect('dev/servis')->with('success', 'Data berhasil dihapus');
     }
 }
