@@ -99,7 +99,7 @@
               </a>
             </li>
             <li class="menu-item">
-              <a href="/dev/order" class="menu-link">
+              <a href="/dev/service-order" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Order Service</div>
               </a>

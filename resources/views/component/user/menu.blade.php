@@ -93,7 +93,7 @@
               </a>
             </li>
             <li class="menu-item">
-              <a href="service-order" class="menu-link">
+              <a href="/service-order" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Riwayat Servis</div>
               </a>

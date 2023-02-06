@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,8 @@ class ConsumerController extends Controller
 {
     public function home()
     {
-        return view('user/index');
+        $data = Product::orderBy('id', 'asc')->get();
+        return view('user/index')->with('data', $data);
     }
 
     public function servis()

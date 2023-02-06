@@ -31,22 +31,25 @@ Route::get('/login', [SessionController::class, 'login']);
 Route::post('/login', [SessionController::class, 'login_action']);
 // Logout
 Route::get('/logout', [SessionController::class, 'logout']);
+Route::get('/logout-user', [SessionController::class, 'logout_user']);
 // Register
 Route::get('/register', [SessionController::class, 'register']);
 Route::post('/register', [SessionController::class, 'register_action']);
 
 // Admin
 Route::get('/dev', [AdminController::class, 'dashboard']);
+Route::get('dev/service-order', [AdminController::class, 'service']);
+Route::get('dev/service-order/{id}', [AdminController::class, 'destroy']);
 Route::resource('dev/produk', ProdukController::class);
 Route::resource('dev/user', UserController::class);
 Route::resource('dev/servis', ServiceController::class);
 
-// User
+// // User
 Route::get('/', [ConsumerController::class, 'home']);
-Route::get('/servis', [ConsumerController::class, 'servis']);
+// Route::get('service', [ConsumerController::class, 'servis']);
 
 // User Book Service
-Route::get('/booking-service', [ConsumerController::class, 'book_service']);
-Route::resource('/service-order', ServiceOrderController::class);
-Route::resource('/produk-order', ProdukOrderController::class);
+// Route::get('/booking-service', [ConsumerController::class, 'book_service']);
+Route::resource('service-order', ServiceOrderController::class);
+Route::resource('produk-order', ProdukOrderController::class);
 // Route::post('/booking-service', [ConsumerController::class, 'book_service_action']);

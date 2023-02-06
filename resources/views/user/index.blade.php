@@ -1,475 +1,568 @@
-@extends('layout/user')
+<!DOCTYPE html>
+<html lang="zxx">
 
-@section('content')
-    
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ogani | Template</title>
 
-@section('content')
-       <!-- Content wrapper -->
-                <div class="content-wrapper">
-                    <!-- Content -->
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
-                    <div class="container-xxl flex-grow-1 container-p-y">
-                        <div class="row">
-                            <div class="col-lg-8 mb-4 order-0">
-                                <div class="card">
-                                    <div class="d-flex align-items-end row">
-                                        <div class="col-sm-7">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-primary">Congratulations {{ Session::get('name')}} 🎉</h5>
-                                                <p class="mb-4">
-                                                    You have done <span class="fw-bold">72%</span> more sales today. Check your new badge in your profile.
-                                                </p>
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{{asset('frontend/css/bootstrap.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('frontend/css/font-awesome.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('frontend/css/elegant-icons.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('frontend/css/nice-select.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('frontend/css/jquery-ui.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('frontend/css/slicknav.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}" type="text/css">
+</head>
 
-                                                <a href="javascript:;" class="btn btn-sm btn-outline-primary">View Badges</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5 text-center text-sm-left">
-                                            <div class="card-body pb-0 px-0 px-md-4">
-                                                <img src="{{ asset('admin/img/illustrations/man-with-laptop-light.png') }}" height="140" alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png" data-app-light-img="illustrations/man-with-laptop-light.png" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 order-1">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-12 col-6 mb-4">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="card-title d-flex align-items-start justify-content-between">
-                                                    <div class="avatar flex-shrink-0">
-                                                        <img src="../assets/img/icons/unicons/chart-success.png" alt="chart success" class="rounded" />
-                                                    </div>
-                                                    <div class="dropdown">
-                                                        <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
-                                                            <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                                            <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <span class="fw-semibold d-block mb-1">Profit</span>
-                                                <h3 class="card-title mb-2">$12,628</h3>
-                                                <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 col-6 mb-4">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="card-title d-flex align-items-start justify-content-between">
-                                                    <div class="avatar flex-shrink-0">
-                                                        <img src="../assets/img/icons/unicons/wallet-info.png" alt="Credit Card" class="rounded" />
-                                                    </div>
-                                                    <div class="dropdown">
-                                                        <button class="btn p-0" type="button" id="cardOpt6" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt6">
-                                                            <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                                            <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <span>Sales</span>
-                                                <h3 class="card-title text-nowrap mb-1">$4,679</h3>
-                                                <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.42%</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Total Revenue -->
-                            <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
-                                <div class="card">
-                                    <div class="row row-bordered g-0">
-                                        <div class="col-md-8">
-                                            <h5 class="card-header m-0 me-2 pb-3">Total Revenue</h5>
-                                            <div id="totalRevenueChart" class="px-2"></div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="card-body">
-                                                <div class="text-center">
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="growthReportId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                2022
-                              </button>
-                                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId">
-                                                            <a class="dropdown-item" href="javascript:void(0);">2021</a>
-                                                            <a class="dropdown-item" href="javascript:void(0);">2020</a>
-                                                            <a class="dropdown-item" href="javascript:void(0);">2019</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="growthChart"></div>
-                                            <div class="text-center fw-semibold pt-3 mb-2">62% Company Growth</div>
+<body>
+    {{-- @dd($data) --}}
+    <!-- Page Preloder -->
+    {{-- <div id="preloder">
+        <div class="loader"></div>
+    </div> --}}
 
-                                            <div class="d-flex px-xxl-4 px-lg-2 p-4 gap-xxl-3 gap-lg-1 gap-3 justify-content-between">
-                                                <div class="d-flex">
-                                                    <div class="me-2">
-                                                        <span class="badge bg-label-primary p-2"><i class="bx bx-dollar text-primary"></i></span>
-                                                    </div>
-                                                    <div class="d-flex flex-column">
-                                                        <small>2022</small>
-                                                        <h6 class="mb-0">$32.5k</h6>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex">
-                                                    <div class="me-2">
-                                                        <span class="badge bg-label-info p-2"><i class="bx bx-wallet text-info"></i></span>
-                                                    </div>
-                                                    <div class="d-flex flex-column">
-                                                        <small>2021</small>
-                                                        <h6 class="mb-0">$41.2k</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/ Total Revenue -->
-                            <div class="col-12 col-md-8 col-lg-4 order-3 order-md-2">
-                                <div class="row">
-                                    <div class="col-6 mb-4">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="card-title d-flex align-items-start justify-content-between">
-                                                    <div class="avatar flex-shrink-0">
-                                                        <img src="../assets/img/icons/unicons/paypal.png" alt="Credit Card" class="rounded" />
-                                                    </div>
-                                                    <div class="dropdown">
-                                                        <button class="btn p-0" type="button" id="cardOpt4" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
-                                                            <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                                            <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <span class="d-block mb-1">Payments</span>
-                                                <h3 class="card-title text-nowrap mb-2">$2,456</h3>
-                                                <small class="text-danger fw-semibold"><i class="bx bx-down-arrow-alt"></i> -14.82%</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 mb-4">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="card-title d-flex align-items-start justify-content-between">
-                                                    <div class="avatar flex-shrink-0">
-                                                        <img src="../assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
-                                                    </div>
-                                                    <div class="dropdown">
-                                                        <button class="btn p-0" type="button" id="cardOpt1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                                                        <div class="dropdown-menu" aria-labelledby="cardOpt1">
-                                                            <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                                            <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <span class="fw-semibold d-block mb-1">Transactions</span>
-                                                <h3 class="card-title mb-2">$14,857</h3>
-                                                <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.14%</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- </div>
-    <div class="row"> -->
-                                    <div class="col-12 mb-4">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
-                                                    <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
-                                                        <div class="card-title">
-                                                            <h5 class="text-nowrap mb-2">Profile Report</h5>
-                                                            <span class="badge bg-label-warning rounded-pill">Year 2021</span>
-                                                        </div>
-                                                        <div class="mt-sm-auto">
-                                                            <small class="text-success text-nowrap fw-semibold"><i class="bx bx-chevron-up"></i> 68.2%</small
-                                >
-                                <h3 class="mb-0">$84,686k</h3>
-                              </div>
-                            </div>
-                            <div id="profileReportChart"></div>
-                          </div>
+    <!-- Humberger Begin -->
+    {{-- <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__wrapper">
+        <div class="humberger__menu__logo">
+            <a href="#"><img src="img/logo.png" alt=""></a>
+        </div>
+        <div class="humberger__menu__cart">
+            <ul>
+                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+            </ul>
+            <div class="header__cart__price">item: <span>$150.00</span></div>
+        </div>
+        <div class="humberger__menu__widget">
+            <div class="header__top__right__language">
+                <img src="img/language.png" alt="">
+                <div>English</div>
+                <span class="arrow_carrot-down"></span>
+                <ul>
+                    <li><a href="#">Spanis</a></li>
+                    <li><a href="#">English</a></li>
+                </ul>
+            </div>
+            <div class="header__top__right__auth">
+                <a href="#"><i class="fa fa-user"></i> Login</a>
+            </div>
+        </div>
+        <nav class="humberger__menu__nav mobile-menu">
+            <ul>
+                <li class="active"><a href="./index.html">Home</a></li>
+                <li><a href="./shop-grid.html">Shop</a></li>
+                <li><a href="#">Pages</a>
+                    <ul class="header__menu__dropdown">
+                        <li><a href="./shop-details.html">Shop Details</a></li>
+                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                        <li><a href="./checkout.html">Check Out</a></li>
+                        <li><a href="./blog-details.html">Blog Details</a></li>
+                    </ul>
+                </li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="header__top__right__social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+        </div>
+        <div class="humberger__menu__contact">
+            <ul>
+                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                <li>Free Shipping for all Order of $99</li>
+            </ul>
+        </div>
+    </div> --}}
+    <!-- Humberger End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__left">
+                            <ul>
+                                <li><i class="fa fa-envelope"></i> protech@gmail.com</li>
+                            </ul>
                         </div>
-                      </div>
                     </div>
-                  </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__right">
+                            @guest
+                            <div class="header__top__right__language">
+                                <div class="header__top__right__auth">
+                                <a href="/login"><i class="fa fa-user"></i> Login</a>
+                                </div>
+                            </div>
+                            <div class="header__top__right__auth">
+                                <a href="/register"><i class="fa fa-user"></i> Register</a>
+                            </div>
+                            @else  
+                            <div class="header__top__right__language">
+                                <div class="header__top__right__auth">
+                                    <li>Hello, {{ Session::get('name') }}</li>
+                                </div>
+                            </div>
+                            <div class="header__top__right__auth">
+                                <a href="/logout-user"> Logout</a>
+                            </div> 
+                            @endguest
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="row">
-                <!-- Order Statistics -->
-                <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
-                  <div class="card h-100">
-                    <div class="card-header d-flex align-items-center justify-content-between pb-0">
-                      <div class="card-title mb-0">
-                        <h5 class="m-0 me-2">Order Statistics</h5>
-                        <small class="text-muted">42.82k Total Sales</small>
-                                                        </div>
-                                                        <div class="dropdown">
-                                                            <button class="btn p-0" type="button" id="orederStatistics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="bx bx-dots-vertical-rounded"></i>
-                        </button>
-                                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orederStatistics">
-                                                                <a class="dropdown-item" href="javascript:void(0);">Select All</a>
-                                                                <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
-                                                                <a class="dropdown-item" href="javascript:void(0);">Share</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <div class="d-flex justify-content-between align-items-center mb-3">
-                                                            <div class="d-flex flex-column align-items-center gap-1">
-                                                                <h2 class="mb-2">8,258</h2>
-                                                                <span>Total Orders</span>
-                                                            </div>
-                                                            <div id="orderStatisticsChart"></div>
-                                                        </div>
-                                                        <ul class="p-0 m-0">
-                                                            <li class="d-flex mb-4 pb-1">
-                                                                <div class="avatar flex-shrink-0 me-3">
-                                                                    <span class="avatar-initial rounded bg-label-primary"><i class="bx bx-mobile-alt"></i
-                            ></span>
-                                                                </div>
-                                                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                                                    <div class="me-2">
-                                                                        <h6 class="mb-0">Electronic</h6>
-                                                                        <small class="text-muted">Mobile, Earbuds, TV</small>
-                                                                    </div>
-                                                                    <div class="user-progress">
-                                                                        <small class="fw-semibold">82.5k</small>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="d-flex mb-4 pb-1">
-                                                                <div class="avatar flex-shrink-0 me-3">
-                                                                    <span class="avatar-initial rounded bg-label-success"><i class="bx bx-closet"></i></span>
-                                                                </div>
-                                                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                                                    <div class="me-2">
-                                                                        <h6 class="mb-0">Fashion</h6>
-                                                                        <small class="text-muted">T-shirt, Jeans, Shoes</small>
-                                                                    </div>
-                                                                    <div class="user-progress">
-                                                                        <small class="fw-semibold">23.8k</small>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="d-flex mb-4 pb-1">
-                                                                <div class="avatar flex-shrink-0 me-3">
-                                                                    <span class="avatar-initial rounded bg-label-info"><i class="bx bx-home-alt"></i></span>
-                                                                </div>
-                                                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                                                    <div class="me-2">
-                                                                        <h6 class="mb-0">Decor</h6>
-                                                                        <small class="text-muted">Fine Art, Dining</small>
-                                                                    </div>
-                                                                    <div class="user-progress">
-                                                                        <small class="fw-semibold">849k</small>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="d-flex">
-                                                                <div class="avatar flex-shrink-0 me-3">
-                                                                    <span class="avatar-initial rounded bg-label-secondary"><i class="bx bx-football"></i
-                            ></span>
-                                                                </div>
-                                                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                                                    <div class="me-2">
-                                                                        <h6 class="mb-0">Sports</h6>
-                                                                        <small class="text-muted">Football, Cricket Kit</small>
-                                                                    </div>
-                                                                    <div class="user-progress">
-                                                                        <small class="fw-semibold">99</small>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--/ Order Statistics -->
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="{{asset('frontend/img/logo.png')}}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="header__menu">
+                        <ul>
+                            <li class="active"><a href="./index.html">Home</a></li>
+                            <li><a href="./shop-grid.html">Shop</a></li>
+                            <li><a href="#">Pages</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="./shop-details.html">Shop Details</a></li>
+                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                                    <li><a href="./checkout.html">Check Out</a></li>
+                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="./blog.html">Blog</a></li>
+                            <li><a href="./contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <div class="header__cart">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        </ul>
+                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                    </div>
+                </div>
+            </div>
+            {{-- <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div> --}}
+        </div>
+    </header>
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Featured Product</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row featured__filter">
+                @foreach ($data as $item)
+                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="{{asset('data_file/'.$item->image)}}">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">{{$item->name}}</a></h6>
+                            <h5>Rp. {{$item->price}}</h5>
+                        </div>
+                    </div>
+                </div>    
+                @endforeach
+            </div>
+        </div>
+    {{-- </section> --}}
+    <!-- Featured Section End -->
 
-                                            <!-- Expense Overview -->
-                                            <div class="col-md-6 col-lg-4 order-1 mb-4">
-                                                <div class="card h-100">
-                                                    <div class="card-header">
-                                                        <ul class="nav nav-pills" role="tablist">
-                                                            <li class="nav-item">
-                                                                <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#navs-tabs-line-card-income" aria-controls="navs-tabs-line-card-income" aria-selected="true">
-                            Income
-                          </button>
-                                                            </li>
-                                                            <li class="nav-item">
-                                                                <button type="button" class="nav-link" role="tab">Expenses</button>
-                                                            </li>
-                                                            <li class="nav-item">
-                                                                <button type="button" class="nav-link" role="tab">Profit</button>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="card-body px-0">
-                                                        <div class="tab-content p-0">
-                                                            <div class="tab-pane fade show active" id="navs-tabs-line-card-income" role="tabpanel">
-                                                                <div class="d-flex p-4 pt-3">
-                                                                    <div class="avatar flex-shrink-0 me-3">
-                                                                        <img src="../assets/img/icons/unicons/wallet.png" alt="User" />
-                                                                    </div>
-                                                                    <div>
-                                                                        <small class="text-muted d-block">Total Balance</small>
-                                                                        <div class="d-flex align-items-center">
-                                                                            <h6 class="mb-0 me-1">$459.10</h6>
-                                                                            <small class="text-success fw-semibold">
-                                  <i class="bx bx-chevron-up"></i>
-                                  42.9%
-                                </small>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div id="incomeChart"></div>
-                                                                <div class="d-flex justify-content-center pt-4 gap-2">
-                                                                    <div class="flex-shrink-0">
-                                                                        <div id="expensesOfWeek"></div>
-                                                                    </div>
-                                                                    <div>
-                                                                        <p class="mb-n1 mt-1">Expenses This Week</p>
-                                                                        <small class="text-muted">$39 less than last week</small>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--/ Expense Overview -->
+    <!-- Banner Begin -->
+    <div class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="banner__pic">
+                        <img src="img/banner/banner-1.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="banner__pic">
+                        <img src="img/banner/banner-2.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner End -->
 
-                                            <!-- Transactions -->
-                                            <div class="col-md-6 col-lg-4 order-2 mb-4">
-                                                <div class="card h-100">
-                                                    <div class="card-header d-flex align-items-center justify-content-between">
-                                                        <h5 class="card-title m-0 me-2">Transactions</h5>
-                                                        <div class="dropdown">
-                                                            <button class="btn p-0" type="button" id="transactionID" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="bx bx-dots-vertical-rounded"></i>
-                        </button>
-                                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="transactionID">
-                                                                <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
-                                                                <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
-                                                                <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <ul class="p-0 m-0">
-                                                            <li class="d-flex mb-4 pb-1">
-                                                                <div class="avatar flex-shrink-0 me-3">
-                                                                    <img src="../assets/img/icons/unicons/paypal.png" alt="User" class="rounded" />
-                                                                </div>
-                                                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                                                    <div class="me-2">
-                                                                        <small class="text-muted d-block mb-1">Paypal</small>
-                                                                        <h6 class="mb-0">Send money</h6>
-                                                                    </div>
-                                                                    <div class="user-progress d-flex align-items-center gap-1">
-                                                                        <h6 class="mb-0">+82.6</h6>
-                                                                        <span class="text-muted">USD</span>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="d-flex mb-4 pb-1">
-                                                                <div class="avatar flex-shrink-0 me-3">
-                                                                    <img src="../assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
-                                                                </div>
-                                                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                                                    <div class="me-2">
-                                                                        <small class="text-muted d-block mb-1">Wallet</small>
-                                                                        <h6 class="mb-0">Mac'D</h6>
-                                                                    </div>
-                                                                    <div class="user-progress d-flex align-items-center gap-1">
-                                                                        <h6 class="mb-0">+270.69</h6>
-                                                                        <span class="text-muted">USD</span>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="d-flex mb-4 pb-1">
-                                                                <div class="avatar flex-shrink-0 me-3">
-                                                                    <img src="../assets/img/icons/unicons/chart.png" alt="User" class="rounded" />
-                                                                </div>
-                                                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                                                    <div class="me-2">
-                                                                        <small class="text-muted d-block mb-1">Transfer</small>
-                                                                        <h6 class="mb-0">Refund</h6>
-                                                                    </div>
-                                                                    <div class="user-progress d-flex align-items-center gap-1">
-                                                                        <h6 class="mb-0">+637.91</h6>
-                                                                        <span class="text-muted">USD</span>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="d-flex mb-4 pb-1">
-                                                                <div class="avatar flex-shrink-0 me-3">
-                                                                    <img src="../assets/img/icons/unicons/cc-success.png" alt="User" class="rounded" />
-                                                                </div>
-                                                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                                                    <div class="me-2">
-                                                                        <small class="text-muted d-block mb-1">Credit Card</small>
-                                                                        <h6 class="mb-0">Ordered Food</h6>
-                                                                    </div>
-                                                                    <div class="user-progress d-flex align-items-center gap-1">
-                                                                        <h6 class="mb-0">-838.71</h6>
-                                                                        <span class="text-muted">USD</span>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="d-flex mb-4 pb-1">
-                                                                <div class="avatar flex-shrink-0 me-3">
-                                                                    <img src="../assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
-                                                                </div>
-                                                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                                                    <div class="me-2">
-                                                                        <small class="text-muted d-block mb-1">Wallet</small>
-                                                                        <h6 class="mb-0">Starbucks</h6>
-                                                                    </div>
-                                                                    <div class="user-progress d-flex align-items-center gap-1">
-                                                                        <h6 class="mb-0">+203.33</h6>
-                                                                        <span class="text-muted">USD</span>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="d-flex">
-                                                                <div class="avatar flex-shrink-0 me-3">
-                                                                    <img src="../assets/img/icons/unicons/cc-warning.png" alt="User" class="rounded" />
-                                                                </div>
-                                                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                                                    <div class="me-2">
-                                                                        <small class="text-muted d-block mb-1">Mastercard</small>
-                                                                        <h6 class="mb-0">Ordered Food</h6>
-                                                                    </div>
-                                                                    <div class="user-progress d-flex align-items-center gap-1">
-                                                                        <h6 class="mb-0">-92.45</h6>
-                                                                        <span class="text-muted">USD</span>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--/ Transactions -->
-                                        </div>
+    <!-- Latest Product Section Begin -->
+    <section class="latest-product spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="latest-product__text">
+                        <h4>Latest Products</h4>
+                        <div class="latest-product__slider owl-carousel">
+                            <div class="latest-prdouct__slider__item">
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-1.jpg" alt="">
                                     </div>
-                    <!-- / Content -->
-                    
-
-                    <div class="content-backdrop fade"></div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-2.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-3.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="latest-prdouct__slider__item">
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-1.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-2.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-3.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- Content wrapper -->
-@endsection
+                <div class="col-lg-4 col-md-6">
+                    <div class="latest-product__text">
+                        <h4>Top Rated Products</h4>
+                        <div class="latest-product__slider owl-carousel">
+                            <div class="latest-prdouct__slider__item">
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-1.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-2.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-3.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="latest-prdouct__slider__item">
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-1.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-2.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-3.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="latest-product__text">
+                        <h4>Review Products</h4>
+                        <div class="latest-product__slider owl-carousel">
+                            <div class="latest-prdouct__slider__item">
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-1.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-2.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-3.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="latest-prdouct__slider__item">
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-1.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-2.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-3.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Latest Product Section End -->
+
+    <!-- Blog Section Begin -->
+    <section class="from-blog spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title from-blog__title">
+                        <h2>From The Blog</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="blog__item">
+                        <div class="blog__item__pic">
+                            <img src="img/blog/blog-1.jpg" alt="">
+                        </div>
+                        <div class="blog__item__text">
+                            <ul>
+                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                <li><i class="fa fa-comment-o"></i> 5</li>
+                            </ul>
+                            <h5><a href="#">Cooking tips make cooking simple</a></h5>
+                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="blog__item">
+                        <div class="blog__item__pic">
+                            <img src="img/blog/blog-2.jpg" alt="">
+                        </div>
+                        <div class="blog__item__text">
+                            <ul>
+                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                <li><i class="fa fa-comment-o"></i> 5</li>
+                            </ul>
+                            <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
+                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="blog__item">
+                        <div class="blog__item__pic">
+                            <img src="img/blog/blog-3.jpg" alt="">
+                        </div>
+                        <div class="blog__item__text">
+                            <ul>
+                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                <li><i class="fa fa-comment-o"></i> 5</li>
+                            </ul>
+                            <h5><a href="#">Visit the clean farm in the US</a></h5>
+                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__about__logo">
+                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        </div>
+                        <ul>
+                            <li>Address: 60-49 Road 11378 New York</li>
+                            <li>Phone: +65 11.188.888</li>
+                            <li>Email: hello@colorlib.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <h6>Useful Links</h6>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">About Our Shop</a></li>
+                            <li><a href="#">Secure Shopping</a></li>
+                            <li><a href="#">Delivery infomation</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Our Sitemap</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">Who We Are</a></li>
+                            <li><a href="#">Our Services</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Innovation</a></li>
+                            <li><a href="#">Testimonials</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__widget">
+                        <h6>Join Our Newsletter Now</h6>
+                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <form action="#">
+                            <input type="text" placeholder="Enter your mail">
+                            <button type="submit" class="site-btn">Subscribe</button>
+                        </form>
+                        <div class="footer__widget__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__copyright">
+                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="{{asset('fronted/js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{asset('fronted/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('fronted/js/jquery.nice-select.min.js')}}"></script>
+    <script src="{{asset('fronted/js/jquery-ui.min.js')}}"></script>
+    <script src="{{asset('fronted/js/jquery.slicknav.js')}}"></script>
+    <script src="{{asset('fronted/js/mixitup.min.js')}}"></script>
+    <script src="{{asset('fronted/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('fronted/js/main.js')}}"></script>
+
+
+
+</body>
+
+</html>

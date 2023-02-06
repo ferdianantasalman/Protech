@@ -55,6 +55,7 @@ class ServiceOrderController extends Controller
             'service' => 'required',
             'jadwal' => 'required',
             'jam' => 'required',
+            'price' => 'required',
         ]);
 
         $data = [
@@ -66,6 +67,7 @@ class ServiceOrderController extends Controller
             'service' => $request->input('service'),
             'jadwal' => $request->input('jadwal'),
             'jam' => $request->input('jam'),
+            'price' => $request->input('price'),
         ];
         // dd($data);
         ServiceOrder::create($data);
@@ -104,7 +106,37 @@ class ServiceOrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'user_id' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'telephone' => 'required|numeric',
+            'alamat' => 'required',
+            'service' => 'required',
+            'jadwal' => 'required',
+            'jam' => 'required',
+            'price' => 'required',
+            'status' => 'required',
+        ]);
+
+        $data = [
+            'user_id' => $request->input('user_id'),
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'telephone' => $request->input('telephone'),
+            'alamat' => $request->input('alamat'),
+            'service' => $request->input('service'),
+            'jadwal' => $request->input('jadwal'),
+            'jam' => $request->input('jam'),
+            'price' => $request->input('price'),
+            'status' => $request->input('status'),
+        ];
+
+        // @dd($data);
+
+        ServiceOrder::where('id', $id)->update($data);
+
+        return redirect('/dev/service-order')->with('success', 'Data berhasil diupdate');
     }
 
     /**

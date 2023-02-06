@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('service');
             $table->date('jadwal');
             $table->time('jam');
+            $table->integer('price');
             $table->string('status')->default('pending');
             $table->timestamps();
         });

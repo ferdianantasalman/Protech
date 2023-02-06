@@ -17,8 +17,8 @@
                       <form method="POST" action="/service-order" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                          <label class="form-label" for="user_id">User Id</label>
-                          <input type="text" class="form-control" id="user_id" name="user_id" value="{{ Session::get('id')}}" >
+                          {{-- <label class="form-label" for="user_id">User Id</label> --}}
+                          <input type="text" class="form-control" id="user_id" name="user_id" value="{{ Session::get('id')}}" hidden>
                         </div>
                         <div class="mb-3">
                           <label class="form-label" for="name">Nama</label>
@@ -38,12 +38,22 @@
                         </div>
                         <div class="mb-3">
                           <label class="form-label" for="service">Jenis Service</label>
-                          <select name="service" class="form-control">
+                          <select name="service" class="form-control" id="service" onchange="changeValue(this.value)">
                                 <option value="">Pilih jenis service</option>
+
+                                <?php $jsArray = "var prdName = new Array();\n"; ?>
                                 @foreach ($services as $service)
                                 <option value="{{$service->name}}">{{$service->name}}</option>
+                                
+                                <?php $jsArray .= "prdName['" . $service->name . "'] = {
+                                       price : '" . addslashes($service->price) . "'};\n";
+                                ?>
                                 @endforeach
                             </select>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="price">Harga</label>
+                          <input type="price" class="form-control" id="price" name="price" readonly/>
                         </div>
                         <div class="mb-3">
                           <label class="form-label" for="jadwal">Jadwal</label>
@@ -64,9 +74,14 @@
                     <!-- / Content -->
 
             <div class="content-backdrop fade"></div>
-        </div>
-           
-        
-        
+        </div>        
         <!-- Content wrapper -->
+
+        <script type="text/javascript">
+          <?php echo $jsArray; ?>
+
+            function changeValue(x) {
+                document.getElementById('price').value = prdName[x].price;
+            }
+        </script>
 @endsection

@@ -74,6 +74,7 @@
                                             <th>Service</th>
                                             <th>Jadwal</th>
                                             <th>Jam</th>
+                                            <th>Harga</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -88,13 +89,14 @@
                                                 <td>{{ $item->service }}</td>
                                                 <td>{{ $item->jadwal }}</td>
                                                 <td>{{ $item->jam }}</td>
+                                                <td>{{ $item->price }}</td>
                                                 <td>{{ $item->status }}</td>
                                                 <td>
                                                     <form action="{{ url('service-order/'.$item->id) }}" method="POST">
                                                     @csrf
                                                         @method('DELETE')
                                                         {{-- <a href="{{ url('dev/produk/'.$item->id.'/edit') }}" class="btn btn-outline-primary text-primary mt-2">Edit </a> --}}
-                                                        <button type="submit" class="btn btn-outline-primary text-primary mt-2" onclick="tambah()">Cancel</button>
+                                                        <button type="submit" class="btn btn-outline-primary text-primary mt-2" onclick="javascript: return confirm('Apakah anda yakin ingin menghapus data ini ?')"">Cancel</button>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -133,10 +135,7 @@
           </div>
           <!-- Content wrapper -->
                 
-        <script>
-        //   $(document).ready(function(){
-        //     Swal.fire('Any fool can use a computer')
-        //   })
+        {{-- <script>
         tambah => () = (){
             Swal.fire({
             title: 'Cancel order servis?',
@@ -156,5 +155,5 @@
     }
 })
         }
-        </script>
+        </script> --}}
 @endsection

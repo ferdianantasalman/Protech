@@ -20,5 +20,6 @@ class ServiceOrder extends Model
         'service',
         'jadwal',
         'jam',
+        'price',
     ];
 }

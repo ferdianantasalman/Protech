@@ -9,63 +9,7 @@
                             @include('component/admin/message')                
                         <a href="servis/create" class="btn btn-primary mt-2 mb-4">Tambah Data</a>
                         <!-- Examples -->
-                        {{-- <div class="row">
-                            <div class="col-md-6 col-xl-4">
-                                <div class="card border border-primary text-center mb-3">
-                                    <img class="card-img-top" src="../assets/img/elements/2.jpg" alt="Card image cap" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">
-                                            Some quick example text to
-                                            asaasasadadsadasd
-                                        </p>
-                                        <a href="javascript:void(0)" class="btn btn-outline-primary mt-4">Go somewhere </a>
-                                        <a href="javascript:void(0)" class="btn btn-outline-primary mt-4">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-4">
-                                <div class="card border border-primary text-center mb-3">
-                                    <img class="card-img-top" src="../assets/img/elements/2.jpg" alt="Card image cap" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">
-                                            Some quick example text to
-                                            asaasasadadsadasd
-                                        </p>
-                                        <a href="javascript:void(0)" class="btn btn-outline-primary mt-4">Go somewhere </a>
-                                        <a href="javascript:void(0)" class="btn btn-outline-primary mt-4">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-4">
-                                <div class="card border border-primary text-center mb-3">
-                                    <img class="card-img-top" src="../assets/img/elements/2.jpg" alt="Card image cap" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">
-                                            Some quick example text to
-                                            asaasasadadsadasd
-                                        </p>
-                                        <a href="javascript:void(0)" class="btn btn-outline-primary mt-4">Go somewhere </a>
-                                        <a href="javascript:void(0)" class="btn btn-outline-primary mt-4">Go somewhere</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-xl-4">
-                                <div class="card border border-primary text-center ">
-                                    <img class="card-img-top" src="../assets/img/elements/2.jpg" alt="Card image cap" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">
-                                            Some quick example text to
-                                            asaasasadadsadasd
-                                        </p>
-                                        <a href="javascript:void(0)" class="btn btn-outline-primary mt-4">Go somewhere </a>
-                                        <a href="javascript:void(0)" class="btn btn-outline-primary mt-4">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}<div class="row mb-5">
+                        <div class="row mb-5">
                                 <div class="card">
                                 <div class="table-responsive text-nowrap mb-3 mt-3">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
